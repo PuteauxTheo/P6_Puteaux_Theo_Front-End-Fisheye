@@ -30,5 +30,19 @@ function photographerFactory(data) {
         article.appendChild(info);
         return (article);
     }
-    return { name, id, city, country, tagline, price, portrait, getUserCardDOM }
+
+    function getUserPresentationCardDOM() {
+        console.log('je suis rentre dans presentation Card DOM')
+        const article = document.createElement('article');
+        const info = document.createElement('div');
+        info.textContent = name+' '+price;
+        const contact_me = document.createElement('div');
+        const image = document.createElement('div');
+        article.appendChild(info);
+        article.appendChild(contact_me);
+        article.appendChild(image);
+        return (article);
+
+    }
+    return { name, id, city, country, tagline, price, portrait, getUserCardDOM, getUserPresentationCardDOM}
 }
