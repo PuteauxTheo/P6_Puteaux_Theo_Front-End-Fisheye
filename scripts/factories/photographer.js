@@ -33,15 +33,40 @@ function photographerFactory(data) {
 
     function getUserPresentationCardDOM() {
         console.log('je suis rentre dans presentation Card DOM')
-        const article = document.createElement('article');
+
+        const div = document.createElement('div');
+        div.className = "photograph-header-info";
+
+        const contact_me = document.createElement('button');
+        contact_me.className = "contact_button"
+        contact_me.onclick = displayModal;
+        contact_me.textContent = "Contactez-moi"
+
         const info = document.createElement('div');
-        info.textContent = name+' '+price;
-        const contact_me = document.createElement('div');
-        const image = document.createElement('div');
-        article.appendChild(info);
-        article.appendChild(contact_me);
-        article.appendChild(image);
-        return (article);
+        
+        const textname = document.createElement('h1');
+        textname.textContent = name;
+        const textcity = document.createElement('p');
+        textcity.textContent = city+', '+country;
+        const texttagline = document.createElement('p');
+        texttagline.textContent = tagline;
+        info.appendChild(textname);                
+        info.appendChild(textcity);                
+        info.appendChild(texttagline);
+
+        
+        const portrait = document.createElement('div');
+        const img = document.createElement( 'img' );
+        img.className = "photograph-header-img";
+        img.setAttribute("src", picture);
+        portrait.appendChild(img);
+
+
+        div.appendChild(info);        
+        div.appendChild(contact_me);
+        div.appendChild(portrait);
+
+        return (div);
 
     }
     return { name, id, city, country, tagline, price, portrait, getUserCardDOM, getUserPresentationCardDOM}
