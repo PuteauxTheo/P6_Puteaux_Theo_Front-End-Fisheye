@@ -6,6 +6,8 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .contact_button {
