@@ -8,8 +8,6 @@ function mediaFactory(data){
 
     function getMediaCardDOM() {
         const article = document.createElement( 'article' );
-        console.log(image);
-        console.log(video);
         if(typeof image !== "undefined"){
             const img = document.createElement('img');
             img.className = "media-img";
@@ -26,16 +24,19 @@ function mediaFactory(data){
             v.appendChild(srcv);
             article.appendChild(v);
         }
+        
+        const titleimg = document.createElement('p');
+        titleimg.textContent = title;
+        const like = document.createElement('p');
+        like.textContent = likes;
+        const divinfo = document.createElement('div');
+        divinfo.className = "info-img";
+        divinfo.appendChild(titleimg);
+        divinfo.appendChild(like);
+        article.appendChild(divinfo);
 
-
-        
-        
-        
         return (article);
-        
-
     }
 
     return { id, photographerId, title, image, video, likes, date, price, getMediaCardDOM}
-
 }
