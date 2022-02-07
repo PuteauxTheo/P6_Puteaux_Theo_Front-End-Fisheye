@@ -32,7 +32,6 @@ function photographerFactory(data) {
     }
 
     function getUserPresentationCardDOM() {
-        console.log('je suis rentre dans presentation Card DOM')
 
         const div = document.createElement('div');
         div.className = "photograph-header-info";
@@ -47,8 +46,10 @@ function photographerFactory(data) {
         const textname = document.createElement('h1');
         textname.textContent = name;
         const textcity = document.createElement('p');
+        textcity.className = "city";
         textcity.textContent = city+', '+country;
         const texttagline = document.createElement('p');
+        texttagline.className = "tagline";
         texttagline.textContent = tagline;
         info.appendChild(textname);                
         info.appendChild(textcity);                
