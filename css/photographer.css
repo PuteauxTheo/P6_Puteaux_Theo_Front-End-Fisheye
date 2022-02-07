@@ -11,6 +11,39 @@
 .photograph-header-info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    height: inherit;
+}
+
+.photograph-header-info div h1 {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 83px;
+    color: #D3573C;
+    margin: 5px 0;
+}
+
+.photograph-header-info div .city {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    color: #901C1C;
+    margin: 5px 0;
+}
+
+.photograph-header-info div .tagline {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    color: #525252;
+    margin: 10px 0;
 }
 
 .photograph-header-img {
@@ -21,12 +54,35 @@
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+.photograph-media{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 0 100px;
+}
+
+.photograph-media article {
+    margin: 10px auto;
+}
 .media-img {
     height: 300px;
     width: 350px;
     object-fit: cover;
 }
 
+.info-img{
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-img p {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    color: #911C1C;
+    margin: 5px 0;
+}
 .contact_button {
     font-size: 20px;
     font-weight: bold;
