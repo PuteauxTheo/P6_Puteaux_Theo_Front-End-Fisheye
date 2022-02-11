@@ -40,7 +40,11 @@ async function displayMedia(medias) {
       });
 };
 
-let firstName = document.getElementById('first');
+const firstName = document.getElementById('first');
+const lastName = document.getElementById('last');
+const email = document.getElementById('email');
+const message = document.getElementById('message');
+const contact_modal = document.getElementById('contact_modal');
 
 async function IsFormCorrect(){
     console.log("je suis dans isformcorrect")
@@ -65,14 +69,20 @@ async function init() {
     // Récupère les datas des photographes
     const { photographers } = await getPhotographers();
     const medias = await getPhotographersMedia();
-    if(IsFormCorrect){
+    if(IsFormCorrect()){
         let btnSend = document.getElementsByClassName('contact_button')[0];
-        btnSend.addEventListener('click', function(){
+        btnSend.addEventListener('click', function(e){
+            e.preventDefault();
             console.log("j'ecoute btnSend")
             console.log("Prenom : "+ firstName.value)
+            console.log("Nom : "+ lastName.value)
+            console.log("Email : "+ email.value)
+            console.log("Message : "+ message.value)
+            contact_modal.style.display = "none";
+            
         })
     }else{
-        
+        //renvoyer des erreurs
     }
     displayDataInfo(photographers);
     displayMedia(medias);
