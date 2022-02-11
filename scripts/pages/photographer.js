@@ -40,10 +40,40 @@ async function displayMedia(medias) {
       });
 };
 
+let firstName = document.getElementById('first');
+
+async function IsFormCorrect(){
+    console.log("je suis dans isformcorrect")
+    firstName.addEventListener('change', function(){
+    let firstRegex = new RegExp('^[a-zA-Z][^0-9]+$');
+
+    let testFirst = firstRegex.test(this.value);
+
+    if(!testFirst || (inputFirst.value == "")){
+        console.log("veuillez rentrer un prenom correct")
+        return false;
+    }   
+        
+    return true;
+})
+
+
+
+}
+
 async function init() {
     // Récupère les datas des photographes
     const { photographers } = await getPhotographers();
     const medias = await getPhotographersMedia();
+    if(IsFormCorrect){
+        let btnSend = document.getElementsByClassName('contact_button')[0];
+        btnSend.addEventListener('click', function(){
+            console.log("j'ecoute btnSend")
+            console.log("Prenom : "+ firstName.value)
+        })
+    }else{
+        
+    }
     displayDataInfo(photographers);
     displayMedia(medias);
 };
