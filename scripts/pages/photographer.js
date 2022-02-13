@@ -14,11 +14,13 @@ async function getPhotographers() {
 async function getPhotographersMedia() {
     const response = await fetch('data/photographers.json')
     const photographersMedia = await response.json()
-    return photographersMedia['media'] ;
+    return ({ medias : photographersMedia['media'] });
 };
 
 
+
 async function displayDataInfo(photographers) {
+    console.log(photographers);
     const photographHeader = document.querySelector(".photograph-header");
     photographers.forEach((photographer) => {
         if(photographer.id == id){
@@ -29,7 +31,35 @@ async function displayDataInfo(photographers) {
     });
 };
 
+const listbox = document.getElementsByClassName('listbox')[0];
+/*const onchange = listbox.addEventListener('change',function(){
+    console.log("la valeur est => "+this.value)
+})*/
+listbox.onchange = displayMedia 
+
 async function displayMedia(medias) {
+    console.log(medias);
+    let elSelect = listbox.value
+    console.log("valeur de listbox "+elSelect);
+    switch(elSelect){
+        case "Popularité":
+            // trier par popularite
+            medias.sort(function(a,b){
+                return b.likes - a.likes;
+            });
+            
+        case "Date":
+            // trier par date
+            /*medias.sort(function(a,b){
+
+            })*/
+        case "Titre":
+            //trier par titre
+            console.log("rentrer dans titre")
+            medias.sort(function(a,b){
+                return a.title - b.title;
+            })
+    }
       const photographersMedia = document.querySelector(".photograph-media");
         medias.forEach((media) => {
           if(media.photographerId == id){
@@ -68,7 +98,8 @@ async function IsFormCorrect(){
 async function init() {
     // Récupère les datas des photographes
     const { photographers } = await getPhotographers();
-    const medias = await getPhotographersMedia();
+    const { medias } = await getPhotographersMedia();
+    console.log('tableau media '+medias);
     if(IsFormCorrect()){
         let btnSend = document.getElementsByClassName('contact_button')[0];
         btnSend.addEventListener('click', function(e){
