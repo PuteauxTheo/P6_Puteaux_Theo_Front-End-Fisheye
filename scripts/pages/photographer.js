@@ -18,8 +18,11 @@ async function getPhotographersMedia() {
 };
 
 
+const photographMedia = document.querySelector(".photograph-media")
 
-async function displayDataInfo(photographers) {
+
+async function displayDataInfo() {
+    const { photographers } = await getPhotographers();
     console.log(photographers);
     const photographHeader = document.querySelector(".photograph-header");
     photographers.forEach((photographer) => {
@@ -31,13 +34,16 @@ async function displayDataInfo(photographers) {
     });
 };
 
-const listbox = document.getElementsByClassName('listbox')[0];
-/*const onchange = listbox.addEventListener('change',function(){
+const listbox = document.querySelector('.listbox');
+/*const listboxEvent = listbox.addEventListener('change',function(){
     console.log("la valeur est => "+this.value)
+    displayMedia
 })*/
-listbox.onchange = displayMedia 
+listbox.onchange = async function() { displayMedia() } ;
 
-async function displayMedia(medias) {
+async function displayMedia() {
+    photographMedia.innerHTML = "";
+    const { medias } = await getPhotographersMedia();
     console.log(medias);
     let elSelect = listbox.value
     console.log("valeur de listbox "+elSelect);
@@ -47,18 +53,28 @@ async function displayMedia(medias) {
             medias.sort(function(a,b){
                 return b.likes - a.likes;
             });
-            
+            break;
         case "Date":
             // trier par date
-            /*medias.sort(function(a,b){
-
-            })*/
+            console.log("rentrer dans date")
+            medias.sort((a, b) => {
+                return new Date(b.date) - new Date(a.date);
+            });
+            break;
         case "Titre":
             //trier par titre
             console.log("rentrer dans titre")
+            // medias.sort(function(a,b){
+            //     return a.title - b.title;
+            // })
+            medias.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+        default:
             medias.sort(function(a,b){
-                return a.title - b.title;
-            })
+                return b.likes - a.likes;
+            });
+            break;
+
     }
       const photographersMedia = document.querySelector(".photograph-media");
         medias.forEach((media) => {
@@ -97,9 +113,9 @@ async function IsFormCorrect(){
 
 async function init() {
     // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
-    const { medias } = await getPhotographersMedia();
-    console.log('tableau media '+medias);
+    // const { photographers } = await getPhotographers();
+    // const { medias } = await getPhotographersMedia();
+    // console.log('tableau media '+medias);
     if(IsFormCorrect()){
         let btnSend = document.getElementsByClassName('contact_button')[0];
         btnSend.addEventListener('click', function(e){
@@ -115,8 +131,8 @@ async function init() {
     }else{
         //renvoyer des erreurs
     }
-    displayDataInfo(photographers);
-    displayMedia(medias);
+    displayDataInfo();
+    displayMedia();
 };
 
 init();
