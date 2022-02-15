@@ -104,9 +104,6 @@ async function displayMedia() {
 };
 //------- manage likes ---------//
 
-
-
-
 async function manageLikes(){
     const heartFull =  document.querySelectorAll(".heart-full")
     const heartEmpty = document.querySelectorAll(".heart-empty")
@@ -139,7 +136,21 @@ async function manageLikes(){
     })
     
 }
+// ------------- display light box ------------//
 
+async function displayLightBox() {
+    const { medias } = await getPhotographersMedia();
+
+    const lightBoxModalContent = document.querySelector(".modal-content")
+    medias.forEach(media => {
+        if(media.photographerId == id){
+        const lightBoxModel = lightBox(media);
+        const lightBoxDOM = lightBoxModel.getLightBoxDOM();
+        lightBoxModalContent.appendChild(lightBoxDOM)
+        }
+    })
+
+}
 
 //------- Form Verification ---------//
 
@@ -192,6 +203,7 @@ async function init() {
     displayDataInfo();
     displayMedia();
     manageLikes();
+    displayLightBox();
     
 };
 
