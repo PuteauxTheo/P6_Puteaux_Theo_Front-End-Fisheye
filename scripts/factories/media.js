@@ -28,22 +28,26 @@ function mediaFactory(data){
         titleimg.textContent = title;
         divinfo.appendChild(titleimg);
         const divlikes = document.createElement('div');
+        divlikes.className = "info-likes"
         divinfo.appendChild(divlikes);
         const like = document.createElement('p');
         like.textContent = likes;
         divlikes.appendChild(like);
         const logoLikes = document.createElement('span');
+        logoLikes.className = "double-heart"
         logoLikes.innerHTML =   `   <div class="heart-full">
-                                        <i aria-label="likes" class="heart fas fa-heart "></i>
+                                        <i aria-label="heart" class="heart fas fa-heart "></i>
                                     </div>
                                     <div class="heart-empty">
-                                        <i aria-label="likes" class="heart far fa-heart "></i>
+                                        <i aria-label="heart" class="heart far fa-heart "></i>
                                     </div>`
         divlikes.appendChild(logoLikes);
         article.appendChild(divinfo);
 
         return (article);
     }
+
+    
 
     return { id, photographerId, title, image, video, likes, date, price, getMediaCardDOM}
 }
