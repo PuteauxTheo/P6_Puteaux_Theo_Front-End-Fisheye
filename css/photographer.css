@@ -74,6 +74,22 @@
     justify-content: space-between;
 }
 
+.info-img div {
+    display: flex; 
+}
+.info-img div span{
+    display: flex;
+    align-items: center;
+}
+.heart {
+    margin: auto 5px;
+    color: #901C1C;
+}
+/* .heart-full {
+    display: block;
+} */
+
+
 .info-img p {
     font-family: DM Sans;
     font-style: normal;
