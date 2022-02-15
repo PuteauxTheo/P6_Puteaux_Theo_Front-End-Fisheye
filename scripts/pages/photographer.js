@@ -1,5 +1,6 @@
 const params = (new URL(document.location)).searchParams;
 const id = params.get('id');
+let totalLikes = 0;
 
 //------- Get data from json files ---------//
 
@@ -30,10 +31,15 @@ async function displayDataInfo() {
     photographers.forEach((photographer) => {
         if(photographer.id == id){
         const photographerModel = photographerFactory(photographer);
+        const photographerStat = document.querySelector(".photograph-stat");
+        const mediaStat = photographerFactory(photographer).getPhotographerStat();
+        photographerStat.appendChild(mediaStat);
         const userPresentationCardDOM = photographerModel.getUserPresentationCardDOM();
         photographHeader.appendChild(userPresentationCardDOM);
         }
     });
+
+
 };
 
 
@@ -78,18 +84,62 @@ async function displayMedia() {
 
     }
       const photographersMedia = document.querySelector(".photograph-media");
+      
+      
         medias.forEach((media) => {
           if(media.photographerId == id){
-              const mediaModel = mediaFactory(media);
-              const mediaCardDOM = mediaModel.getMediaCardDOM();
-              photographersMedia.appendChild(mediaCardDOM);
+            
+            totalLikes += media.likes
+            const mediaModel = mediaFactory(media);
+            const mediaCardDOM = mediaModel.getMediaCardDOM();
+            photographersMedia.appendChild(mediaCardDOM);
+              
           }
       });
-};
-//------- operation with likes ---------//
+      // display of total for the first loading page 
+    const idTotalLikes = document.getElementById('totalLikes')
+    idTotalLikes.innerHTML = totalLikes;
 
-const heartFull = document.querySelector('.heart-full')
-// heartFull.style.display = "none";
+      manageLikes();
+};
+//------- manage likes ---------//
+
+
+
+
+async function manageLikes(){
+    const heartFull =  document.querySelectorAll(".heart-full")
+    const heartEmpty = document.querySelectorAll(".heart-empty")
+    const idTotalLikes = document.getElementById('totalLikes')
+    
+    heartEmpty.forEach(e => {
+        e.addEventListener('click', function(){
+            
+            let nbLikes = e.parentElement.parentElement.childNodes[0].textContent
+            nbLikes ++;
+            totalLikes ++;
+            idTotalLikes.textContent = totalLikes
+            e.parentElement.parentElement.childNodes[0].textContent = nbLikes; 
+            e.style.display = 'none'
+            e.parentElement.childNodes[1].style.display = 'block'
+            
+        })
+    })
+
+    heartFull.forEach(e => {
+        e.addEventListener('click', function(){
+            let nbLikes = e.parentElement.parentElement.childNodes[0].textContent
+            nbLikes --;
+            totalLikes --;
+            idTotalLikes.textContent = totalLikes
+            e.parentElement.parentElement.childNodes[0].textContent = nbLikes; 
+            e.style.display = 'none'
+            e.parentElement.childNodes[3].style.display = 'block'
+        })
+    })
+    
+}
+
 
 //------- Form Verification ---------//
 
@@ -141,6 +191,8 @@ async function init() {
     }
     displayDataInfo();
     displayMedia();
+    manageLikes();
+    
 };
 
 init();
