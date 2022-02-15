@@ -1,8 +1,6 @@
 function mediaFactory(data){
     const { id, photographerId, title, image, video, likes, date, price } = data;
 
-    // faire le lien avec l'id et le nom de la perssone
-    // pour le chemin de l'image 
     const picture = `assets/media/${photographerId}/${image}`;
     const videomp4 = `assets/media/${photographerId}/${video}`;
 
@@ -24,15 +22,24 @@ function mediaFactory(data){
             v.appendChild(srcv);
             article.appendChild(v);
         }
-        
-        const titleimg = document.createElement('p');
-        titleimg.textContent = title;
-        const like = document.createElement('p');
-        like.textContent = likes;
         const divinfo = document.createElement('div');
         divinfo.className = "info-img";
+        const titleimg = document.createElement('p');
+        titleimg.textContent = title;
         divinfo.appendChild(titleimg);
-        divinfo.appendChild(like);
+        const divlikes = document.createElement('div');
+        divinfo.appendChild(divlikes);
+        const like = document.createElement('p');
+        like.textContent = likes;
+        divlikes.appendChild(like);
+        const logoLikes = document.createElement('span');
+        logoLikes.innerHTML =   `   <div class="heart-full">
+                                        <i aria-label="likes" class="heart fas fa-heart "></i>
+                                    </div>
+                                    <div class="heart-empty">
+                                        <i aria-label="likes" class="heart far fa-heart "></i>
+                                    </div>`
+        divlikes.appendChild(logoLikes);
         article.appendChild(divinfo);
 
         return (article);
