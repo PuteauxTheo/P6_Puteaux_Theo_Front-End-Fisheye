@@ -1,6 +1,7 @@
 const params = (new URL(document.location)).searchParams;
 const id = params.get('id');
 
+//------- Get data from json files ---------//
 
 async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json
@@ -17,6 +18,7 @@ async function getPhotographersMedia() {
     return ({ medias : photographersMedia['media'] });
 };
 
+//------- Display Info Photograph ---------//
 
 const photographMedia = document.querySelector(".photograph-media")
 
@@ -34,11 +36,10 @@ async function displayDataInfo() {
     });
 };
 
+
+//------- Display Media With Sort ---------//
+
 const listbox = document.querySelector('.listbox');
-/*const listboxEvent = listbox.addEventListener('change',function(){
-    console.log("la valeur est => "+this.value)
-    displayMedia
-})*/
 listbox.onchange = async function() { displayMedia() } ;
 
 async function displayMedia() {
@@ -85,12 +86,19 @@ async function displayMedia() {
           }
       });
 };
+//------- operation with likes ---------//
+
+const heartFull = document.querySelector('.heart-full')
+// heartFull.style.display = "none";
+
+//------- Form Verification ---------//
 
 const firstName = document.getElementById('first');
 const lastName = document.getElementById('last');
 const email = document.getElementById('email');
 const message = document.getElementById('message');
 const contact_modal = document.getElementById('contact_modal');
+
 
 async function IsFormCorrect(){
     console.log("je suis dans isformcorrect")
