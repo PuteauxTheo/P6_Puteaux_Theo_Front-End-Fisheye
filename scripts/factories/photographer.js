@@ -70,5 +70,25 @@ function photographerFactory(data) {
         return (div);
 
     }
-    return { name, id, city, country, tagline, price, portrait, getUserCardDOM, getUserPresentationCardDOM}
+
+    function getPhotographerStat() {
+        const div = document.createElement('div')
+        div.className = 'stat-likes'
+        const divTotalLikes = document.createElement('div');
+        divTotalLikes.className = " stat-totalLikes"
+        div.appendChild(divTotalLikes);
+        const pTotalLikes = document.createElement('p');
+        pTotalLikes.setAttribute('id','totalLikes')
+        divTotalLikes.appendChild(pTotalLikes)
+        const logoTotalLikes = document.createElement('span');
+        logoTotalLikes.innerHTML = `<i aria-label="heart_totalLike" class="heart fas fa-heart "></i>`
+        divTotalLikes.appendChild(logoTotalLikes);
+        const divPrice = document.createElement('p');
+        divPrice.setAttribute('id','pricePerDay')
+        divPrice.textContent = price +"€ /jour";
+        div.appendChild(divPrice)
+
+        return (div);
+    }
+    return { name, id, city, country, tagline, price, portrait, getUserCardDOM, getUserPresentationCardDOM, getPhotographerStat}
 }
