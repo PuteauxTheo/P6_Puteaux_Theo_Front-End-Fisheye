@@ -28,12 +28,12 @@ function lightBox(data) {
     return { id, title, image, video, getLightBoxDOM}
 }
 
-function openModal() {
-    document.getElementById("myModal").style.display = "block";
+function openModalLightbox() {
+    document.getElementById("idmodal-lightbox").style.display = "block";
 }
 
-function closeModal() {
-    document.getElementById("myModal").style.display = "none";
+function closeModalLightbox() {
+    document.getElementById("idmodal-lightbox").style.display = "none";
 }
 
 var slideIndex = 1;
@@ -60,7 +60,7 @@ function showSlides(n) {
     // for (i = 0; i < dots.length; i++) {
     //     dots[i].className = dots[i].className.replace(" active", "");
     // }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    captionText.innerHTML = dots[slideIndex-1].alt;
+    //slides[slideIndex-1].style.display = "block";
+    //dots[slideIndex-1].className += " active";
+    //captionText.innerHTML = dots[slideIndex-1].alt;
 }
