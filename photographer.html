@@ -30,9 +30,9 @@
       <div class="photograph-stat">
       </div>
     </main>
-    <div id="myModal" class="modal">
-      <span class="close cursor" onclick="closeModal()">&times;</span>
-      <div class="modal-content">
+    <div id="idmodal-lightbox" class="modal-lightbox">
+      <span class="close cursor" onclick="closeModalLightbox()">&times;</span>
+      <div class="modal-lightbox-content">
         
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -46,9 +46,9 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModalContact()" />
         </header>
-				<form>
+				<form id="contact-form">
 					<div>
 						<label>Prénom</label>
 						<input id="first"/>
