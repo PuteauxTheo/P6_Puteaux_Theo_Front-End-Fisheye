@@ -230,7 +230,7 @@ form input {
 /* ----------------------- LIGHT BOX -------------------- */
 
 /* The Modal (background) */
-.modal {
+.modal-lightbox {
     display: none;
     position: fixed;
     z-index: 1;
@@ -244,7 +244,7 @@ form input {
   }
   
   /* Modal Content */
-  .modal-content {
+  .modal-lightbox-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
