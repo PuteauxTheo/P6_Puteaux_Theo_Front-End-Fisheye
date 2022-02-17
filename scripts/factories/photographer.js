@@ -38,7 +38,7 @@ function photographerFactory(data) {
 
         const contact_me = document.createElement('button');
         contact_me.className = "contact_button"
-        contact_me.onclick = displayModal;
+        contact_me.onclick = displayModalContact;
         contact_me.textContent = "Contactez-moi"
 
         const info = document.createElement('div');
