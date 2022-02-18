@@ -40,10 +40,10 @@ function mediaFactory(data){
         const logoLikes = document.createElement('span');
         logoLikes.className = "double-heart"
         logoLikes.innerHTML =   `   <div class="heart-full">
-                                        <i aria-label="heart" class="heart fas fa-heart "></i>
+                                        <i class="heart fas fa-heart "></i>
                                     </div>
                                     <div class="heart-empty">
-                                        <i aria-label="heart" class="heart far fa-heart "></i>
+                                        <i class="heart far fa-heart "></i>
                                     </div>`
         divlikes.appendChild(logoLikes);
         article.appendChild(divinfo);
