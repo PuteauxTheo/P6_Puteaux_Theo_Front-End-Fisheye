@@ -81,7 +81,7 @@ function photographerFactory(data) {
         pTotalLikes.setAttribute('id','totalLikes')
         divTotalLikes.appendChild(pTotalLikes)
         const logoTotalLikes = document.createElement('span');
-        logoTotalLikes.innerHTML = `<i aria-label="heart_totalLike" class="heart fas fa-heart "></i>`
+        logoTotalLikes.innerHTML = `<i class="heart-totalLike fas fa-heart "></i>`
         divTotalLikes.appendChild(logoTotalLikes);
         const divPrice = document.createElement('p');
         divPrice.setAttribute('id','pricePerDay')
