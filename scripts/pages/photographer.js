@@ -152,7 +152,6 @@ async function init() {
     displayMedia();
     manageLikes();
     displayLightBox();
-    // sendContactInfo();
     
 };
 
