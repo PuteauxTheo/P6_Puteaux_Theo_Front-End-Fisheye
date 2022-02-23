@@ -207,6 +207,8 @@
     text-align: center;
 }
 
+/* ----------------------- FORM -------------------- */
+
 form {
     display: flex;
     width: 100%;
@@ -232,6 +234,10 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+form input[data-error="true"]{
+    border: 3px solid #911C1C;
 }
 
 form textarea {
@@ -288,6 +294,16 @@ form textarea {
     display: none;
   }
   
+  .mySlides img {
+      width: 100%;
+      max-height: 800px;
+      object-fit: cover;
+  }
+
+  .mySlides video {
+      width: 100%;
+      max-height: 800px;
+  }
   .cursor {
     cursor: pointer;
   }
@@ -308,6 +324,7 @@ form textarea {
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
+    z-index: 10;
   }
   
   /* Position the "next button" to the right */
