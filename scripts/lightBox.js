@@ -11,13 +11,15 @@ function lightBox(data) {
         if(typeof image !== "undefined"){
             const img = document.createElement('img')
             img.setAttribute('src',picture)
-            img.setAttribute("style","width=100%")
             div.appendChild(img);
         }
         
         if(typeof video !== "undefined"){
             const v = document.createElement('video')
-            v.setAttribute('src',videomp4)
+            v.setAttribute("controls","controls");
+            const srcv = document.createElement('source');
+            srcv.setAttribute('src',videomp4)
+            v.appendChild(srcv);
             div.appendChild(v);
         }
         
@@ -28,30 +30,43 @@ function lightBox(data) {
     return { id, title, image, video, getLightBoxDOM}
 }
 
-function openModalLightbox() {
+async function openModalLightbox() {
     document.getElementById("idmodal-lightbox").style.display = "block";
 }
 
-function closeModalLightbox() {
+async function closeModalLightbox() {
     document.getElementById("idmodal-lightbox").style.display = "none";
 }
+
+//var mediaArticle = document.querySelectorAll(".media-article");
+// var children = mediaArticle.childNodes
+// var array = Array.from(mediaArticle)
+//     console.log(array)
+//     console.log(mediaArticle.childNodes)
+    //mediaArticle.children.textContent = " test "
+    // for ( i = 0; i <= mediaArticle.length; i++){
+    //     console.log(mediaArticle)
+    //     console.log(mediaArticle[i])
+    //     mediaArticle[i].childNodes[1].onclick = currentSlide(i+1);
+    // }
 
 var slideIndex = 1;
 showSlides(slideIndex);
 
-function plusSlides(n) {
+async function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
-function currentSlide(n) {
+async function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
-function showSlides(n) {
+async function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
+    
     // var dots = document.getElementsByClassName("demo");
-    var captionText = document.getElementById("caption");
+    // var captionText = document.getElementById("caption");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
