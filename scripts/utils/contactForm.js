@@ -24,15 +24,15 @@ lastName.addEventListener('change',function(){
     validateName(this);
 })
 
-async function validateName(inputName) {
+function validateName(inputName) {
     const nameRegex = new RegExp('^[a-zA-Z][^0-9]+$');
-    console.log("inputName value : "+inputName.value)
     let testName = nameRegex.test(inputName.value);
-    console.log(" regex value "+ testName)
         if(!testName || (inputName.value == "")){
+            inputName.setAttribute("data-error","true")
             console.log("veuillez rentrer un prenom ou nom correct")
             return false;
         }else{
+            inputName.setAttribute("data-error","false")
             return true;
         }
 }
@@ -43,32 +43,35 @@ email.addEventListener('change',function() {
     validateEmail(this);
 })
 
-async function validateEmail(inputEmail){
+// verifie si l'email est rentré correctement 
+function validateEmail(inputEmail){
     const emailRegex = new RegExp( '^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$');
     let testEmail = emailRegex.test(inputEmail.value);
         if(!testEmail || (inputEmail.value == "")){
+            inputEmail.setAttribute("data-error","true");
             console.log("veuillez rentrer un email correct")
             return false;
         }else{
-            console.log(" email valide ")
+            inputEmail.setAttribute("data-error","false")
             return true;
         }
 }
 const message = document.getElementById('message');
 
 message.addEventListener('change', function() {
-    valideMessage(this);
+    validateMessage(this);
 })
 
-async function valideMessage(inputMessage){
+// vérifie si le message a bien deux caracteres 
+function validateMessage(inputMessage){
     const messageRegex = new RegExp('^[a-zA-Z][^0-9]+$')
-    console.log(" inputmessage value : "+ inputMessage.value)
     let testMessage = messageRegex.test(inputMessage.value);
-    console.log(" regex value message"+ testMessage)
         if(!testMessage || (inputMessage.value == "" )){
+            inputMessage.setAttribute("data-error","true")
             console.log("veuillez rentrer un message")
             return false;
         }else{
+            inputMessage.setAttribute("data-error","false")
             return true;
         }
 }
@@ -76,8 +79,8 @@ const contact_modal = document.getElementById('contact_modal');
 
 
 async function IsFormCorrect(){
-    console.log(" je suis dans isFormCorrect ")
-    if( validateName(firstName) & validateName(lastName) & validateEmail(email) & valideMessage(message)){
+    // regarde si toutes les conditions sont respectées pour chaque input 
+    if( validateName(firstName) & validateName(lastName) & validateEmail(email) & validateMessage(message)){
         console.log("Prenom : "+ firstName.value)
         console.log("Nom : "+ lastName.value)
         console.log("Email : "+ email.value)
@@ -94,14 +97,3 @@ btnSend.addEventListener('click', function(e){
     IsFormCorrect(this);
 })
 
-// async function sendContactInfo() {
-//         let btnSend = document.getElementsByClassName('contact_button')[0];
-//         btnSend.addEventListener('click', function(e){
-//             e.preventDefault();
-//             console.log("Prenom : "+ firstName.value)
-//             console.log("Nom : "+ lastName.value)
-//             console.log("Email : "+ email.value)
-//             console.log("Message : "+ message.value)
-//             contact_modal.style.display = "none";
-//         })
-// }
