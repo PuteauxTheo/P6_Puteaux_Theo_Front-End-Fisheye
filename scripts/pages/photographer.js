@@ -42,6 +42,7 @@ async function displayDataInfo() {
 
 const listbox = document.querySelector('.listbox');
 listbox.onchange = async function() { displayMedia() } ;
+listbox.onchange = async function() { displayLightBox() };
 
 async function displayMedia() {
     photographMedia.innerHTML = "";
@@ -80,6 +81,7 @@ async function displayMedia() {
     }
       const photographersMedia = document.querySelector(".photograph-media");
       
+
         medias.forEach((media) => {
           if(media.photographerId == id){
             
@@ -90,6 +92,20 @@ async function displayMedia() {
               
           }
       });
+      var mediaArticle = document.querySelector(".photograph-media");
+      console.log(mediaArticle.childNodes.length)
+      for(i = 0;i < mediaArticle.childNodes.length;i++){
+          console.log("je suis dans le for ")
+        // mediaArticle.childNodes[i].childNodes[0].onclick = function() { currentSlide(i) };
+        mediaArticle.childNodes[i].childNodes[0].addEventListener('click', function(){
+            currentSlide(i);
+        }) 
+        console.log(mediaArticle.childNodes[i].childNodes[0]) 
+      }
+
+        
+
+      
       // display of total for the first loading page 
     const idTotalLikes = document.getElementById('totalLikes')
     idTotalLikes.innerHTML = totalLikes;
@@ -134,8 +150,41 @@ async function manageLikes(){
 
 async function displayLightBox() {
     const { medias } = await getPhotographersMedia();
+    const slidesContent = document.querySelector(".slides-content");
+    slidesContent.innerHTML = "";
+    console.log(medias);
+    let elSelect = listbox.value
+    console.log("valeur de listbox "+elSelect);
+    switch(elSelect){
+        case "Popularité":
+            // trier par popularite
+            medias.sort(function(a,b){
+                return b.likes - a.likes;
+            });
+            break;
+        case "Date":
+            // trier par date
+            console.log("rentrer dans date")
+            medias.sort((a, b) => {
+                return new Date(b.date) - new Date(a.date);
+            });
+            break;
+        case "Titre":
+            //trier par titre
+            console.log("rentrer dans titre")
+            // medias.sort(function(a,b){
+            //     return a.title - b.title;
+            // })
+            medias.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+        default:
+            medias.sort(function(a,b){
+                return b.likes - a.likes;
+            });
+            break;
 
-    const lightBoxModalContent = document.querySelector(".modal-lightbox-content")
+    }
+    const lightBoxModalContent = document.querySelector(".slides-content")
     medias.forEach(media => {
         if(media.photographerId == id){
         const lightBoxModel = lightBox(media);
