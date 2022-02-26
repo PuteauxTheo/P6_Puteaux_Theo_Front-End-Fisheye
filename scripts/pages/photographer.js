@@ -41,8 +41,7 @@ async function displayDataInfo() {
 //------- Display Media With Sort ---------//
 
 const listbox = document.querySelector('.listbox');
-listbox.onchange = async function() { displayMedia() } ;
-listbox.onchange = async function() { displayLightBox() };
+listbox.onchange = async function() { displayMedia(); displayLightBox()} ;
 
 async function displayMedia() {
     photographMedia.innerHTML = "";
@@ -93,18 +92,15 @@ async function displayMedia() {
           }
       });
       var mediaArticle = document.querySelector(".photograph-media");
-      console.log(mediaArticle.childNodes.length)
-      for(i = 0;i < mediaArticle.childNodes.length;i++){
-          console.log("je suis dans le for ")
+      
+       for(let i = 0;i < mediaArticle.childNodes.length;i++){
+          console.log("je suis dans le for "+i)
         // mediaArticle.childNodes[i].childNodes[0].onclick = function() { currentSlide(i) };
         mediaArticle.childNodes[i].childNodes[0].addEventListener('click', function(){
-            currentSlide(i);
-        }) 
-        console.log(mediaArticle.childNodes[i].childNodes[0]) 
-      }
-
-        
-
+            currentSlide(i+1);            
+            openModalLightbox();
+        });
+    };
       
       // display of total for the first loading page 
     const idTotalLikes = document.getElementById('totalLikes')
