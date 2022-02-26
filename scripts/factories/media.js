@@ -12,7 +12,6 @@ function mediaFactory(data){
             const img = document.createElement('img');
             img.className = "media-img";
             img.setAttribute("src",picture);
-            img.setAttribute("onclick","openModalLightbox();"/*currentSlide(5);"*/)
             article.appendChild(img);
         }
 
@@ -21,7 +20,6 @@ function mediaFactory(data){
             v.setAttribute("controls","controls");
             const srcv = document.createElement('source');            
             v.className = "media-img";
-            v.setAttribute("onclick","openModalLightbox();"/*currentSlide(5);"*/)
             srcv.setAttribute("src",videomp4);
 
             v.appendChild(srcv);
