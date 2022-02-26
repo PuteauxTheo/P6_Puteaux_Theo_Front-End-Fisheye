@@ -39,13 +39,12 @@ async function closeModalLightbox() {
 }
 
 var slideIndex = 1;
-
+ 
 async function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
 async function currentSlide(n) {
-    console.log(" n de curentSlide "+n)
     showSlides(slideIndex = n);
 }
 
@@ -56,10 +55,7 @@ async function showSlides(n) {
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
-        console.log(" slides "+ slides[i]);
-
         slides[i].style.display = "none";
     }
-
     slides[slideIndex-1].style.display = "block";
 }
