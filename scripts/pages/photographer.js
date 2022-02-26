@@ -24,7 +24,6 @@ const photographMedia = document.querySelector(".photograph-media")
 
 async function displayDataInfo() {
     const { photographers } = await getPhotographers();
-    console.log(photographers);
     const photographHeader = document.querySelector(".photograph-header");
     photographers.forEach((photographer) => {
         if(photographer.id == id){
@@ -46,9 +45,7 @@ listbox.onchange = async function() { displayMedia(); displayLightBox()} ;
 async function displayMedia() {
     photographMedia.innerHTML = "";
     const { medias } = await getPhotographersMedia();
-    console.log(medias);
     let elSelect = listbox.value
-    console.log("valeur de listbox "+elSelect);
     switch(elSelect){
         case "Popularité":
             // trier par popularite
@@ -58,17 +55,12 @@ async function displayMedia() {
             break;
         case "Date":
             // trier par date
-            console.log("rentrer dans date")
             medias.sort((a, b) => {
                 return new Date(b.date) - new Date(a.date);
             });
             break;
         case "Titre":
             //trier par titre
-            console.log("rentrer dans titre")
-            // medias.sort(function(a,b){
-            //     return a.title - b.title;
-            // })
             medias.sort((a, b) => a.title.localeCompare(b.title));
             break;
         default:
@@ -91,14 +83,12 @@ async function displayMedia() {
               
           }
       });
-      var mediaArticle = document.querySelector(".photograph-media");
+        var mediaArticle = document.querySelector(".photograph-media");
       
-       for(let i = 0;i < mediaArticle.childNodes.length;i++){
-          console.log("je suis dans le for "+i)
-        // mediaArticle.childNodes[i].childNodes[0].onclick = function() { currentSlide(i) };
-        mediaArticle.childNodes[i].childNodes[0].addEventListener('click', function(){
-            currentSlide(i+1);            
-            openModalLightbox();
+        for(let i = 0;i < mediaArticle.childNodes.length;i++){
+            mediaArticle.childNodes[i].childNodes[0].addEventListener('click', function(){
+                currentSlide(i+1);            
+                openModalLightbox();
         });
     };
       
@@ -148,9 +138,7 @@ async function displayLightBox() {
     const { medias } = await getPhotographersMedia();
     const slidesContent = document.querySelector(".slides-content");
     slidesContent.innerHTML = "";
-    console.log(medias);
     let elSelect = listbox.value
-    console.log("valeur de listbox "+elSelect);
     switch(elSelect){
         case "Popularité":
             // trier par popularite
