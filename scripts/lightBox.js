@@ -11,7 +11,12 @@ function lightBox(data) {
         if(typeof image !== "undefined"){
             const img = document.createElement('img')
             img.setAttribute('src',picture)
+            const titleImg = document.createElement('div');
+            titleImg.className = "title-slide-img";
+            titleImg.textContent = title;
             div.appendChild(img);
+            div.appendChild(titleImg);
+            
         }
         
         if(typeof video !== "undefined"){
@@ -20,7 +25,11 @@ function lightBox(data) {
             const srcv = document.createElement('source');
             srcv.setAttribute('src',videomp4)
             v.appendChild(srcv);
+            const titleV = document.createElement('div');
+            titleV.className = "title-slide-v"
+            titleV.textContent = title;
             div.appendChild(v);
+            div.appendChild(titleV);
         }
         
         
