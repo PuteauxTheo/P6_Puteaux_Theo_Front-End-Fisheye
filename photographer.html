@@ -36,9 +36,6 @@
         
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        <div class="caption-container">
-          <p id="caption"></p>
-        </div>
         <div class="slides-content">
         </div>
       </div>
@@ -51,23 +48,23 @@
         </header>
 				<form id="contact-form">
 					<div>
-						<label>Prénom</label>
+						<label for="first">Prénom</label>
 						<input id="first"/>
-            <label>Nom</label>
+            <label for="last">Nom</label>
 						<input id="last"/>
-            <label>Email</label>
+            <label for="email">Email</label>
 						<input id="email"/>
-            <label >Votre message</label>
+            <label for="Votre message">Votre message</label>
             <textarea id="message"></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
+    <script src="scripts/lightBox.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/lightBox.js"></script>
   </body>
 </html>
