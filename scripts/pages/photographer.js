@@ -4,20 +4,6 @@ let totalLikes = 0;
 
 //------- Get data from json files ---------//
 
-// async function getPhotographers() {
-//     // Penser à remplacer par les données récupérées dans le json
-//     const response = await fetch('data/photographers.json')
-//     const photographers = await response.json()
-//     return ({ photographers : photographers['photographers'] })
-
-// };
-
-// async function getPhotographersMedia() {
-//     const response = await fetch('data/photographers.json')
-//     const photographersMedia = await response.json()
-//     return ({ medias : photographersMedia['media'] });
-// };
-
 async function getPhotographersInfo(info){
     const response = await fetch('data/photographers.json')
     const photographersInfo = await response.json()
