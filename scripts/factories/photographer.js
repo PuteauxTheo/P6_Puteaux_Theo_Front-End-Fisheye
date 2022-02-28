@@ -9,6 +9,7 @@ function photographerFactory(data) {
         link.setAttribute('href','photographer.html?id='+id);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
+        img.setAttribute("alt",name)
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         const info = document.createElement('div'); 
@@ -60,6 +61,7 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.className = "photograph-header-img";
         img.setAttribute("src", picture);
+        img.setAttribute("alt",name);
         portrait.appendChild(img);
 
 

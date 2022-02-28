@@ -12,6 +12,7 @@ function mediaFactory(data){
             const img = document.createElement('img');
             img.className = "media-img";
             img.setAttribute("src",picture);
+            img.setAttribute("alt",title);
             article.appendChild(img);
         }
 
@@ -21,7 +22,6 @@ function mediaFactory(data){
             const srcv = document.createElement('source');            
             v.className = "media-img";
             srcv.setAttribute("src",videomp4);
-
             v.appendChild(srcv);
             article.appendChild(v);
         }
