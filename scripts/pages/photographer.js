@@ -4,26 +4,39 @@ let totalLikes = 0;
 
 //------- Get data from json files ---------//
 
-async function getPhotographers() {
-    // Penser à remplacer par les données récupérées dans le json
-    const response = await fetch('data/photographers.json')
-    const photographers = await response.json()
-    return ({ photographers : photographers['photographers'] })
+// async function getPhotographers() {
+//     // Penser à remplacer par les données récupérées dans le json
+//     const response = await fetch('data/photographers.json')
+//     const photographers = await response.json()
+//     return ({ photographers : photographers['photographers'] })
 
-};
+// };
 
-async function getPhotographersMedia() {
+// async function getPhotographersMedia() {
+//     const response = await fetch('data/photographers.json')
+//     const photographersMedia = await response.json()
+//     return ({ medias : photographersMedia['media'] });
+// };
+
+async function getPhotographersInfo(info){
     const response = await fetch('data/photographers.json')
-    const photographersMedia = await response.json()
-    return ({ medias : photographersMedia['media'] });
-};
+    const photographersInfo = await response.json()
+
+    if( info == 'photographers'){
+        return ({ photographers : photographersInfo['photographers'] })
+    }
+
+    if( info == 'media'){
+        return ({ medias : photographersInfo['media'] });
+    }
+}
 
 //------- Display Info Photograph ---------//
 
 const photographMedia = document.querySelector(".photograph-media")
 
 async function displayDataInfo() {
-    const { photographers } = await getPhotographers();
+    const { photographers } = await getPhotographersInfo('photographers');
     const photographHeader = document.querySelector(".photograph-header");
     photographers.forEach((photographer) => {
         if(photographer.id == id){
@@ -44,7 +57,7 @@ listbox.onchange = async function() { displayMedia(); displayLightBox()} ;
 
 async function displayMedia() {
     photographMedia.innerHTML = "";
-    const { medias } = await getPhotographersMedia();
+    const { medias } = await getPhotographersInfo('media');
     let elSelect = listbox.value
     switch(elSelect){
         case "Popularité":
@@ -135,7 +148,7 @@ async function manageLikes(){
 // ------------- display light box ------------//
 
 async function displayLightBox() {
-    const { medias } = await getPhotographersMedia();
+    const { medias } = await getPhotographersInfo('media');
     const slidesContent = document.querySelector(".slides-content");
     slidesContent.innerHTML = "";
     let elSelect = listbox.value
