@@ -296,15 +296,16 @@ form textarea {
   }
   
   .mySlides img {
-      width: 100%;
       max-height: 750px;
       object-fit: contain;
       border-radius: 5px;
+      display: flex;
+      margin: auto;
   }
 
   .mySlides video {
       width: 100%;
-      max-height: 900px;
+      max-height: 750px;
   }
 
   .title-slide-img, .title-slide-v {
