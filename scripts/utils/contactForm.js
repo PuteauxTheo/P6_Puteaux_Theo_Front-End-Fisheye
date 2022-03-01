@@ -12,13 +12,13 @@ function closeModalContact() {
 
 //------- Form Verification ---------//
 
-const firstName = document.getElementById('first');
+const firstName = document.getElementById('firstNameInput');
 
 firstName.addEventListener('change',function() {
     validateName(this);
 })
 
-const lastName = document.getElementById('last');
+const lastName = document.getElementById('lastNameInput');
 
 lastName.addEventListener('change',function(){
     validateName(this);
@@ -37,7 +37,7 @@ function validateName(inputName) {
         }
 }
 
-const email = document.getElementById('email');
+const email = document.getElementById('emailInput');
 
 email.addEventListener('change',function() {
     validateEmail(this);
@@ -56,7 +56,7 @@ function validateEmail(inputEmail){
             return true;
         }
 }
-const message = document.getElementById('message');
+const message = document.getElementById('messageInput');
 
 message.addEventListener('change', function() {
     validateMessage(this);
