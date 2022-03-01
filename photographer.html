@@ -31,11 +31,11 @@
       </div>
     </main>
     <div id="idmodal-lightbox" class="modal-lightbox">
-      <span class="close cursor" onclick="closeModalLightbox()">&times;</span>
+      <span class="close cursor" onclick="closeModalLightbox()" aria-label="Fermer la fenêtre">&times;</span>
       <div class="modal-lightbox-content">
         
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="prev" onclick="plusSlides(-1)" aria-label="image précédente">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)" aria-label="image suivante">&#10095;</a>
         <div class="slides-content">
         </div>
       </div>
@@ -48,14 +48,14 @@
         </header>
 				<form id="contact-form">
 					<div>
-						<label for="first">Prénom</label>
-						<input id="first"/>
-            <label for="last">Nom</label>
-						<input id="last"/>
-            <label for="email">Email</label>
-						<input id="email"/>
-            <label for="Votre message">Votre message</label>
-            <textarea id="message"></textarea>
+						<label for="firstNameInput">Prénom</label>
+						<input id="firstNameInput"/>
+            <label for="lastNameInput">Nom</label>
+						<input id="lastNameInput"/>
+            <label for="emailInput">Email</label>
+						<input id="emailInput"/>
+            <label for="messageInput">Votre message</label>
+            <textarea id="messageInput"></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
