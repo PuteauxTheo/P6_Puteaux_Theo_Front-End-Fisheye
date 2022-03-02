@@ -38,9 +38,10 @@ function photographerFactory(data) {
         div.className = "photograph-header-info";
 
         const contact_me = document.createElement('button');
-        contact_me.className = "contact_button"
+        contact_me.className = "contact_button";
         contact_me.onclick = displayModalContact;
-        contact_me.textContent = "Contactez-moi"
+        contact_me.textContent = "Contactez-moi";
+        contact_me.setAttribute("tabindex", 2)
 
         const info = document.createElement('div');
         
