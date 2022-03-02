@@ -71,6 +71,11 @@
     border-radius: 5px;
 }
 
+.media-img:focus{
+    border: 7px solid #911C1C;
+}
+
+
 .info-img{
     display: flex;
     justify-content: space-between;
@@ -136,6 +141,11 @@
     padding: 10px;
 }
 
+.photograph-sort .listbox:focus {
+    background: #D3573C;
+    color: #000000;
+}
+
 
 .photograph-stat {
     position: fixed;
@@ -178,6 +188,11 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.contact_button:focus{
+    background-color: #D3573C;
+    color: #000000;
 }
 
 .modal {
