@@ -83,5 +83,4 @@ function checkKey(e) {
         plusSlides(1);
        //right arrow
     }
-
 }
