@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 function lightBox(data) {
     const { id , photographerId, title, image, video } = data
 
@@ -39,10 +40,12 @@ function lightBox(data) {
     return { id, title, image, video, getLightBoxDOM}
 }
 
+// eslint-disable-next-line no-unused-vars
 async function openModalLightbox() {
     document.getElementById("idmodal-lightbox").style.display = "block";
 }
 
+// eslint-disable-next-line no-unused-vars
 async function closeModalLightbox() {
     document.getElementById("idmodal-lightbox").style.display = "none";
 }
@@ -53,6 +56,7 @@ async function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
+// eslint-disable-next-line no-unused-vars
 async function currentSlide(n) {
     showSlides(slideIndex = n);
 }

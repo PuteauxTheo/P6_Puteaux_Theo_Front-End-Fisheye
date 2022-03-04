@@ -26,15 +26,17 @@ async function displayDataInfo() {
     const photographHeader = document.querySelector(".photograph-header");
     photographers.forEach((photographer) => {
         if(photographer.id == id){
+        // eslint-disable-next-line no-undef
         const photographerModel = photographerFactory(photographer);
         const photographerStat = document.querySelector(".photograph-stat");
+        // eslint-disable-next-line no-undef
         const mediaStat = photographerFactory(photographer).getPhotographerStat();
         photographerStat.appendChild(mediaStat);
         const userPresentationCardDOM = photographerModel.getUserPresentationCardDOM();
         photographHeader.appendChild(userPresentationCardDOM);
         }
     });
-};
+}
 
 //------- Display Media With Sort ---------//
 
@@ -76,6 +78,7 @@ async function displayMedia() {
           if(media.photographerId == id){
             
             totalLikes += media.likes
+            // eslint-disable-next-line no-undef
             const mediaModel = mediaFactory(media);
             const mediaCardDOM = mediaModel.getMediaCardDOM();
             photographersMedia.appendChild(mediaCardDOM);
@@ -86,17 +89,19 @@ async function displayMedia() {
       
         for(let i = 0;i < mediaArticle.childNodes.length;i++){
             mediaArticle.childNodes[i].childNodes[0].addEventListener('click', function(){
+                // eslint-disable-next-line no-undef
                 currentSlide(i+1);            
+                // eslint-disable-next-line no-undef
                 openModalLightbox();
         });
-    };
+    }
       
       // display of total for the first loading page 
     const idTotalLikes = document.getElementById('totalLikes')
     idTotalLikes.innerHTML = totalLikes;
 
       manageLikes();
-};
+}
 //------- manage likes ---------//
 
 async function manageLikes(){
@@ -170,6 +175,7 @@ async function displayLightBox() {
     const lightBoxModalContent = document.querySelector(".slides-content")
     medias.forEach(media => {
         if(media.photographerId == id){
+        // eslint-disable-next-line no-undef
         const lightBoxModel = lightBox(media);
         const lightBoxDOM = lightBoxModel.getLightBoxDOM();
         lightBoxModalContent.appendChild(lightBoxDOM)
@@ -185,6 +191,6 @@ async function init() {
     manageLikes();
     displayLightBox();
     
-};
+}
 
 init();
