@@ -68,3 +68,20 @@ async function showSlides(n) {
     }
     slides[slideIndex-1].style.display = "block";
 }
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '37') {
+        plusSlides(-1);
+       //left arrow
+    }
+    else if (e.keyCode == '39') {
+        plusSlides(1);
+       //right arrow
+    }
+
+}
