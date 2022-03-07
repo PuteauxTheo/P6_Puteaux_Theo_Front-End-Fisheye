@@ -19,9 +19,11 @@ h1 {
     margin-right: 100px;
 }
 
+.link-logo  {
+    margin-left: 100px;
+}
 .logo {
     height: 50px;
-    margin-left: 100px;
 }
 
 .photographer_section {
