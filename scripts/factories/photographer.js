@@ -43,6 +43,7 @@ function photographerFactory(data) {
         // eslint-disable-next-line no-undef
         contact_me.onclick = displayModalContact;
         contact_me.textContent = "Contactez-moi"
+        contact_me.setAttribute("tabindex",2);
 
         const info = document.createElement('div');
         

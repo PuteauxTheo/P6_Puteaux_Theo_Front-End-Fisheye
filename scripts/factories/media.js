@@ -14,12 +14,14 @@ function mediaFactory(data){
             img.className = "media-img";
             img.setAttribute("src",picture);
             img.setAttribute("alt",title);
+            img.setAttribute("tabindex",4);
             article.appendChild(img);
         }
 
         if(typeof video !== "undefined"){
             const v = document.createElement('video');
             v.setAttribute("controls","controls");
+            v.setAttribute("tabindex",4);
             const srcv = document.createElement('source');            
             v.className = "media-img";
             srcv.setAttribute("src",videomp4);
