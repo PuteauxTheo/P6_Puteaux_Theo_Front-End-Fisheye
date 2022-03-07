@@ -1,8 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 function displayModalContact() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 }
 
+// eslint-disable-next-line no-unused-vars
 function closeModalContact() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
