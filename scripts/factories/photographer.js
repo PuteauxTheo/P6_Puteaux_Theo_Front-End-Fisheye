@@ -10,7 +10,7 @@ function photographerFactory(data) {
         link.setAttribute('href','photographer.html?id='+id);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
-        img.setAttribute("alt",name)
+        img.setAttribute("alt","Photo de profil de "+name)
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         const info = document.createElement('div'); 
@@ -44,6 +44,7 @@ function photographerFactory(data) {
         contact_me.onclick = displayModalContact;
         contact_me.textContent = "Contactez-moi"
         contact_me.setAttribute("tabindex",2);
+        contact_me.setAttribute("aria-label", "Contactez-moi "+name);
 
         const info = document.createElement('div');
         
@@ -64,7 +65,7 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.className = "photograph-header-img";
         img.setAttribute("src", picture);
-        img.setAttribute("alt",name);
+        img.setAttribute("alt","Photo de profil de "+name);
         portrait.appendChild(img);
 
 
