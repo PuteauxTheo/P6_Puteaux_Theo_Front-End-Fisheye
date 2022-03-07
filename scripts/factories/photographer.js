@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 function photographerFactory(data) {
     const { name, id, city, country, tagline, price, portrait } = data;
 
@@ -39,6 +40,7 @@ function photographerFactory(data) {
 
         const contact_me = document.createElement('button');
         contact_me.className = "contact_button"
+        // eslint-disable-next-line no-undef
         contact_me.onclick = displayModalContact;
         contact_me.textContent = "Contactez-moi"
 
