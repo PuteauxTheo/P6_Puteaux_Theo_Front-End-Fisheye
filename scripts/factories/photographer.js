@@ -1,9 +1,13 @@
+// photographerFactory permet de factoriser les elements necessaire pour chaque photographe avec differente fonction 
 // eslint-disable-next-line no-unused-vars
 function photographerFactory(data) {
     const { name, id, city, country, tagline, price, portrait } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
+    // getUserCardDOM permet la creation de la carte du photographe
+    // apparait sur la page acceuil
+    // getUserCardDOM renvoie un article avec la presentation du photographe 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const link = document.createElement( 'a' );
@@ -33,6 +37,9 @@ function photographerFactory(data) {
         return (article);
     }
 
+    // getUserPresentationCardDOM permet de creer la carte infomartion du photographe avec un button pour le contacter 
+    // apparait sur la page d'un photographe selectionne 
+    // getUserPresentationCardDOM renvoie une div avec les informations du photographe
     function getUserPresentationCardDOM() {
 
         const div = document.createElement('div');
@@ -77,6 +84,9 @@ function photographerFactory(data) {
 
     }
 
+    // getPhotographerStat permet d'afficher le nombre de like pour  total de chaque photographe une fois sur sa page
+    // apparait sur la page d'un photographe selectionne
+    // getPhotographerStat renvoie une div qui affiche le nombre total de like et le tarif
     function getPhotographerStat() {
         const div = document.createElement('div')
         div.className = 'stat-likes'

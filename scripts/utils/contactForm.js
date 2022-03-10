@@ -1,8 +1,12 @@
+// displayuModalContact permet d'afficher la modal de contact 
+
 // eslint-disable-next-line no-unused-vars
 function displayModalContact() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 }
+
+// displayuModalContact permet de fermer la modal de contact
 
 // eslint-disable-next-line no-unused-vars
 function closeModalContact() {
@@ -26,6 +30,7 @@ lastName.addEventListener('change',function(){
     validateName(this);
 })
 
+// validateName permet de regarde si le champ saisie correspond bien au condition d'un nom ou prenom
 function validateName(inputName) {
     const nameRegex = new RegExp('^[a-zA-Z][^0-9]+$');
     let testName = nameRegex.test(inputName.value);
@@ -45,7 +50,7 @@ email.addEventListener('change',function() {
     validateEmail(this);
 })
 
-// verifie si l'email est rentré correctement 
+// validateEmail verifie si l'email saisie correspond bien au exigences d'une adresse mail 
 function validateEmail(inputEmail){
     const emailRegex = new RegExp( '^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$');
     let testEmail = emailRegex.test(inputEmail.value);
@@ -64,7 +69,7 @@ message.addEventListener('change', function() {
     validateMessage(this);
 })
 
-// vérifie si le message a bien deux caracteres 
+// validateMessage vérifie si le message a bien deux caracteres 
 function validateMessage(inputMessage){
     const messageRegex = new RegExp('^[a-zA-Z][^0-9]+$')
     let testMessage = messageRegex.test(inputMessage.value);
@@ -79,7 +84,7 @@ function validateMessage(inputMessage){
 }
 const contact_modal = document.getElementById('contact_modal');
 
-
+// IsFormCorrect verifie si chaque saisie est correct puis envoie les informations si oui
 async function IsFormCorrect(){
     // regarde si toutes les conditions sont respectées pour chaque input 
     if( validateName(firstName) & validateName(lastName) & validateEmail(email) & validateMessage(message)){

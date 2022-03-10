@@ -1,3 +1,5 @@
+// lightBox renvoie une div qui correspond a chaque slide de la lightBox 
+
 // eslint-disable-next-line no-unused-vars
 function lightBox(data) {
     const { id , photographerId, title, image, video } = data
@@ -40,10 +42,14 @@ function lightBox(data) {
     return { id, title, image, video, getLightBoxDOM}
 }
 
+// openModalLightBox permet d'ouvrir la modal lightBox  
+
 // eslint-disable-next-line no-unused-vars
 async function openModalLightbox() {
     document.getElementById("idmodal-lightbox").style.display = "block";
 }
+
+// openModalLightBox permet de fermer la modal lightBox  
 
 // eslint-disable-next-line no-unused-vars
 async function closeModalLightbox() {
@@ -51,16 +57,21 @@ async function closeModalLightbox() {
 }
 
 var slideIndex = 1;
- 
+
+// plusSlides permet de naviguer entre les slides 
 async function plusSlides(n) {
     showSlides(slideIndex += n);
 }
+
+// currentSlide permet de se situer losrqu'on navigue 
 
 // eslint-disable-next-line no-unused-vars
 async function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
+
+// showSlides permet de montrer une slides, lors du changement de slides permet de la faire disparaitre 
 async function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
@@ -75,6 +86,7 @@ async function showSlides(n) {
 
 document.onkeydown = checkKey;
 
+// checkKey permet de naviguer au clavier sur la lightBox
 function checkKey(e) {
 
     e = e || window.event;

@@ -1,3 +1,4 @@
+// mediaFactory permet de factoriser les elements necessaire pour chaque media avec differente fonction
 // eslint-disable-next-line no-unused-vars
 function mediaFactory(data){
     const { id, photographerId, title, image, video, likes, date, price } = data;
@@ -5,6 +6,8 @@ function mediaFactory(data){
     const picture = `assets/media/${photographerId}/${image}`;
     const videomp4 = `assets/media/${photographerId}/${video}`;
 
+    // getMediaCardDOM permet de creer pour chaque photo ou video l'element complet avec toutes les informations
+    // getMediaCardDOM renvoie un article pour chaque contenu 
     function getMediaCardDOM() {
         const article = document.createElement( 'article' );
         article.className = "media-article";

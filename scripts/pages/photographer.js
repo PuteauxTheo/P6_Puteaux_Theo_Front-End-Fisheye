@@ -1,8 +1,13 @@
+// permet de recuperer l'url de la page 
 const params = (new URL(document.location)).searchParams;
+// permet de recuperer l'id notifier dans params
 const id = params.get('id');
+
 let totalLikes = 0;
 
 //------- Get data from json files ---------//
+
+// getPhotographerInfo renvoie un tableau d'objet avec les informations du fichier json dedans 
 
 async function getPhotographersInfo(info){
     const response = await fetch('data/photographers.json')
@@ -21,6 +26,7 @@ async function getPhotographersInfo(info){
 
 const photographMedia = document.querySelector(".photograph-media")
 
+// displayDataInfo permet d'afficher la div contenant toutes les informations de presentation du photographe
 async function displayDataInfo() {
     const { photographers } = await getPhotographersInfo('photographers');
     const photographHeader = document.querySelector(".photograph-header");
@@ -41,12 +47,17 @@ async function displayDataInfo() {
 //------- Display Media With Sort ---------//
 
 const listbox = document.querySelector('.listbox');
+
+//  lorsque on change est prit en compte, on appel ses deux fonctions pour afficher une nouvelle fois
+// les informations avec la selection de la listbox
 listbox.onchange = async function() { displayMedia(); displayLightBox()} ;
 
+// displayMedia affiche toutes le contenu du photographe suivant le trie demande 
 async function displayMedia() {
     photographMedia.innerHTML = "";
-    const { medias } = await getPhotographersInfo('media');
-    let elSelect = listbox.value
+    const { medias } = await getPhotographersInfo('media');          
+    let elSelect = listbox.value   
+    // suivant l'element selectionne de la listbox, un cas est effectué pour trier medias                      
     switch(elSelect){
         case "Popularité":
             // trier par popularite
@@ -87,6 +98,7 @@ async function displayMedia() {
       });
         var mediaArticle = document.querySelector(".photograph-media");
       
+        // cette boucle permet d'appliquer un appel de fonction a chaque click sur le contenu du photographe
         for(let i = 0;i < mediaArticle.childNodes.length;i++){
             mediaArticle.childNodes[i].childNodes[0].addEventListener('click', function(){
                 // eslint-disable-next-line no-undef
@@ -104,6 +116,7 @@ async function displayMedia() {
 }
 //------- manage likes ---------//
 
+// manageLikes permet de prendre en compte au click le like et le dislike
 async function manageLikes(){
     const heartFull =  document.querySelectorAll(".heart-full")
     const heartEmpty = document.querySelectorAll(".heart-empty")
@@ -138,11 +151,13 @@ async function manageLikes(){
 }
 // ------------- display light box ------------//
 
+// displayLightBox permet d'ajouer tous le contenu dans la lightBox
 async function displayLightBox() {
     const { medias } = await getPhotographersInfo('media');
     const slidesContent = document.querySelector(".slides-content");
     slidesContent.innerHTML = "";
     let elSelect = listbox.value
+    // trier medias pour que la lightBox l'affiche dans l'ordre de l'affichage des medias 
     switch(elSelect){
         case "Popularité":
             // trier par popularite
@@ -183,9 +198,9 @@ async function displayLightBox() {
     })
 }
 
+// init permet d'afficher les informations du photographe et d'afficher ses medias
 async function init() {
-    // Récupère les datas des photographes
-    
+
     displayDataInfo();
     displayMedia();
     manageLikes();
@@ -193,4 +208,5 @@ async function init() {
     
 }
 
+// appel la function init
 init();
