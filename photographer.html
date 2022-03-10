@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -18,8 +18,8 @@
       <div class="photograph-header">
       </div>
       <div class="photograph-sort">
-        <label class="listboxlabel">Trier par</label>
-        <select role="listbox" class="listbox" tabindex="3" aria-label="Liste déroulante pour trier les articles">
+        <label class="listboxlabel" for="listbox">Trier par</label>
+        <select id="listbox" role="listbox" class="listbox" tabindex="3" aria-label="Liste déroulante pour trier les articles">
           <option role="button" id="popularite" class="option-sort">Popularité</option>
           <option role="button" id="date" class="option-sort">Date</option>
           <option role="button" id="titre" class="option-sort">Titre</option>
@@ -31,7 +31,7 @@
       </div>
     </main>
     <div id="idmodal-lightbox" class="modal-lightbox">
-      <span class="close cursor" onclick="closeModalLightbox()">&times;</span>
+      <span class="close cursor" onclick="closeModalLightbox()" aria-label=" cette croix permet de fermer la modal qui affiche le contenu">&times;</span>
       <div class="modal-lightbox-content">
         
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -44,7 +44,7 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModalContact()" />
+          <img src="assets/icons/close.svg" alt="cette croix permet de fermer la modal de contact" onclick="closeModalContact()" />
         </header>
 				<form id="contact-form">
 					<div>
@@ -54,10 +54,10 @@
 						<input id="last"/>
             <label for="email">Email</label>
 						<input id="email"/>
-            <label for="Votre message">Votre message</label>
+            <label for="message">Votre message</label>
             <textarea id="message"></textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" aria-label="Envoyer les données saisie">Envoyer</button>
 				</form>
 			</div>
 		</div>
