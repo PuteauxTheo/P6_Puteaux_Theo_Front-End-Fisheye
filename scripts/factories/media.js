@@ -23,7 +23,6 @@ function mediaFactory(data){
 
         if(typeof video !== "undefined"){
             const v = document.createElement('video');
-            v.setAttribute("controls","controls");
             v.setAttribute("tabindex",4);
             v.setAttribute("alt","Video "+title);
             const srcv = document.createElement('source');            
