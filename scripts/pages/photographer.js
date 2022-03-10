@@ -96,18 +96,30 @@ async function displayMedia() {
               
           }
       });
-        var mediaArticle = document.querySelector(".photograph-media");
-      
-        // cette boucle permet d'appliquer un appel de fonction a chaque click sur le contenu du photographe
-        for(let i = 0;i < mediaArticle.childNodes.length;i++){
-            mediaArticle.childNodes[i].childNodes[0].addEventListener('click', function(){
+    
+    var mediaArticle = document.querySelector(".photograph-media");
+    
+    
+    for(let i = 0;i < mediaArticle.childNodes.length;i++){
+        // cette partie de la boucle permet d'appliquer un appel de fonction a chaque click sur le contenu du photographe
+        mediaArticle.childNodes[i].childNodes[0].addEventListener('click', function(){
+            // eslint-disable-next-line no-undef
+            currentSlide(i+1);            
+            // eslint-disable-next-line no-undef
+            openModalLightbox();
+        });
+        // cette partie de la boucle permet d'appliquer un appel de fonction a chaque enter sur le contenu du photographe focus
+        mediaArticle.childNodes[i].childNodes[0].addEventListener('keypress', function(e){
+            if(e.key ==='Enter'){
                 // eslint-disable-next-line no-undef
                 currentSlide(i+1);            
                 // eslint-disable-next-line no-undef
                 openModalLightbox();
+            }
         });
+        
     }
-      
+    
       // display of total for the first loading page 
     const idTotalLikes = document.getElementById('totalLikes')
     idTotalLikes.innerHTML = totalLikes;
