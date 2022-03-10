@@ -17,7 +17,7 @@
 }
 
 .photograph-header-info div h1 {
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 54px;
@@ -27,7 +27,7 @@
 }
 
 .photograph-header-info div .city {
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -37,7 +37,7 @@
 }
 
 .photograph-header-info div .tagline {
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -116,7 +116,7 @@
 
 
 .info-img p {
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -131,7 +131,7 @@
 }
 
 .photograph-sort .listboxlabel{
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
