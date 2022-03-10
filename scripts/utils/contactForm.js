@@ -1,3 +1,5 @@
+const contactForm = document.getElementById("contact-form")
+
 // displayuModalContact permet d'afficher la modal de contact 
 
 // eslint-disable-next-line no-unused-vars
@@ -12,8 +14,18 @@ function displayModalContact() {
 function closeModalContact() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
-    const contactForm = document.getElementById("contact-form")
     contactForm.reset(); 
+}
+
+document.onkeyup = keyContactForm
+
+// permet de naviguer au clavier sur la modal de contact 
+function keyContactForm(e) {
+
+    // permet de ferme la modal de contact lorsqu'on appuit sur echap 
+    if( e.code == "Escape"){
+        closeModalContact();
+    }
 }
 
 //------- Form Verification ---------//
@@ -93,6 +105,7 @@ async function IsFormCorrect(){
         console.log("Email : "+ email.value)
         console.log("Message : "+ message.value)
         contact_modal.style.display = "none";
+        contactForm.reset();
     }
     
 }
