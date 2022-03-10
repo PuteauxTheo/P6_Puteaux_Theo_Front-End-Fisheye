@@ -84,13 +84,12 @@ async function showSlides(n) {
     slides[slideIndex-1].style.display = "block";
 }
 
-document.onkeydown = checkKey;
-
+document.onkeydown = keyLightBox;
 // checkKey permet de naviguer au clavier sur la lightBox
-function checkKey(e) {
+function keyLightBox(e) {
 
-    e = e || window.event;
 
+    // checkKey permet de naviguer au clavier sur la lightBox
     if (e.keyCode == '37') {
         plusSlides(-1);
        //left arrow
@@ -99,4 +98,10 @@ function checkKey(e) {
         plusSlides(1);
        //right arrow
     }
+
+    // permet de fermer la lightbox avec le button echap 
+    if(e.code == "Escape"){
+        document.getElementById("idmodal-lightbox").style.display = "none";
+    }
 }
+
