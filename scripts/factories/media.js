@@ -43,13 +43,13 @@ function mediaFactory(data){
         like.textContent = likes;
         divlikes.appendChild(like);
         const logoLikes = document.createElement('span');
-        logoLikes.className = "double-heart"
-        logoLikes.innerHTML =   `   <div class="heart-full">
+        logoLikes.className = "double-heart";
+        logoLikes.innerHTML =   `   <button class="heart-full" tabindex="4">
                                         <i class="heart fas fa-heart "></i>
-                                    </div>
-                                    <div class="heart-empty">
+                                    </button>
+                                    <button class="heart-empty" tabindex="4">
                                         <i class="heart far fa-heart "></i>
-                                    </div>`
+                                    </button>`
         divlikes.appendChild(logoLikes);
         article.appendChild(divinfo);
 
