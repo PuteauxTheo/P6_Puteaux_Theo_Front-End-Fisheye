@@ -94,6 +94,10 @@
     color: #901C1C;
 }
 
+.fa-heart{
+    font-size: 20px;
+}
+
 .heart-totalLike{
     color: black;
     margin: auto 5px;
@@ -101,9 +105,13 @@
 
 .heart-empty {
     display: block;
+    border: none;
+    background-color: #fff;
 }
 .heart-full {
     display: none;
+    border: none;
+    background-color: #fff;
 } 
 
 
@@ -226,6 +234,11 @@
 
 /* ----------------------- FORM -------------------- */
 
+.contact-close-button{
+    background-color: #DB8876;
+    border: none;
+}
+
 form {
     display: flex;
     width: 100%;
@@ -298,6 +311,8 @@ form textarea {
     right: 25px;
     font-size: 75px;
     font-weight: bold;
+    background-color: #fff;
+    border: none;
   }
   
   .close:hover,
